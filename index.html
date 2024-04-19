@@ -44,6 +44,10 @@
         filter: drop-shadow(0 0 0.75rem rgb(112, 112, 112));
       }
 
+      #ui {
+        height: 0;
+      }
+
       .ui-text{
         margin: 0;
         user-select: none;
@@ -71,12 +75,22 @@
         color: rgb(238, 238, 238);
         user-select: none;
       }
+
+      .exit-note{
+        position: absolute;
+        right: 5%;
+        top: 7vh;
+        display: flex;
+        flex-direction: column;
+        color: rgb(238, 238, 238);
+        text-decoration: none;
+      }
     </style>
     <div id="app">
       <div id="ui">
         <p class="start-note">Tap/Click around to move</p>
         <br>
-        <a href="diegoquevedodev.wordpress.com">&#10554;</a>
+        <a class="exit-note" href="https://diegoquevedodev.wordpress.com">Go back to the web &#10554;</a>
         <div id="textbox-container" style="display: none">
           <div id="textbox">
             <p id="dialogue" class="ui-text"></p>
