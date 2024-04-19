@@ -1,12 +1,9 @@
-// Reusable constants for a cleaner code
-
-
 export const scaleFactor = 4;
 
 const linkedIn = "https://www.linkedin.com/in/diego-arturo-quevedo-ramirez-2bb197281/"
 const instagram = "https://www.instagram.com/drei_null_acht?igsh=MXVpams2MzM5Z2prcQ%3D%3D&utm_source=qr"
 const vimeo = "https://vimeo.com/924729366?share=copy"
-const portfolio = ""
+const portfolio = "diegoquevedodev.wordpress.com"
 
 export const dialogueData = {
     pc: `The screen has a website with the title <a href=${portfolio}> <<Diego Quevedo Web Portfolio>> <a/> <br> Click to visit the site and leave the game <br> *You notice the PC is not connected but it's still ON, what?*`,
