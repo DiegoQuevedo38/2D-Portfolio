@@ -57,12 +57,6 @@ k.scene("main", async () => {
                     k.pos(boundary.x, boundary.y),
                     boundary.name,
                 ]);
-            if (boundary.name === "pc") {
-                player.onCollide(boundary.name, () => {
-                    player.isInDialogue = true;
-                    displayDialogue(dialogueData[boundary.name], () => (player.isInDialogue = false))
-                })
-            }
 
             if (boundary.name) {
                 player.onCollide(boundary.name, () => {

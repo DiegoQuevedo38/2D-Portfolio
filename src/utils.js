@@ -7,20 +7,23 @@ export function displayDialogue(text, onDisplayEnd) {
 
     let index = 0;
     let currentText = "";
-    const intervalRef = setInterval(() => {
-        if (index < dialogueArray.length) {
-            const currentPart = dialogueArray[index];
+    let intervalRef;
+
+    function displayNextLetter() {
+        if (index < text.length) {
+            const currentPart = text[index];
             if (currentText.length < currentPart.length) {
-                currentText += currentPart[index];
+                currentText += currentPart[currentText.length];
                 dialogue.innerHTML = currentText;
                 return;
             }
-            index++;
-            currentText = "";
+            clearInterval(intervalRef);
         } else {
             clearInterval(intervalRef);
         }
-    }, 5);
+    }
+
+    intervalRef = setInterval(displayNextLetter, 5);
 
     const closeBtn = document.getElementById("close");
 
@@ -35,9 +38,12 @@ export function displayDialogue(text, onDisplayEnd) {
     closeBtn.addEventListener("click", onCloseBtn);
 
     dialogueUI.addEventListener("click", () => {
-        clearInterval(intervalRef);
-        index++;
-        currentText = "";
+        if (index < text.length) {
+            clearInterval(intervalRef);
+            index++;
+            currentText = "";
+            intervalRef = setInterval(displayNextLetter, 5);
+        }
     });
 }
 
