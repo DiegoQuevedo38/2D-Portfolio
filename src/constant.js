@@ -3,10 +3,11 @@ export const scaleFactor = 4;
 const linkedIn = "https://www.linkedin.com/in/diego-arturo-quevedo-ramirez-2bb197281/"
 const instagram = "https://www.instagram.com/drei_null_acht?igsh=MXVpams2MzM5Z2prcQ%3D%3D&utm_source=qr"
 const vimeo = "https://vimeo.com/924729366?share=copy"
-const portfolio = "diegoquevedodev.wordpress.com"
+const portfolio = "diegoquevedodev.wordpress.com";
+const nextText = `<div style="align-self: flex-end">...</div>`
 
 export const dialogueData = {
-    pc: [`The screen has a website with the title <a href=${portfolio}> Diego Quevedo Web Portfolio <a/> <br> Click to visit the site and leave the game <br> *You notice the PC is not connected but it's still ON, what?*`],
+    pc: [`The screen has a website with the title <a href=${portfolio}> Diego Quevedo Web Portfolio <a/> <br> Click to visit the site and leave the game <br> *You notice the PC is not connected but it's still ON, what?* <br> ${nextText}`],
     library: ["There's a lot of books over here, every one about technologies learned. The list goes: <br> - Front End: <br> . Back End: <br> - Frameworks: <br> - Other Technologies: "],
     "shield-girl": [`Howdy! *cough cough* <br> *Lowers the voice pitch to sound tough* <br> I mean ... Hello there traveler, Looks like you've traveled a long way.`, `Hope you've found the place interesting. <br> I chopped some of the trees around here to make it more comfortable.`, `Here you can check the projects we've made by checking the PC or checking this short video I made for you: <a href=${vimeo} >Video demo<a/>`],
     slimy: ["*blurp* ... *blurp* <br> ... ", "Hey, found this awesome fortune chest, it's my hard work and passion <br> I would be glad to exchange it with you if you hire me <br> ... ", "usually my work pricing per hour is 24€/h, but we can talk it out! <br> If you ever feel interested gimme a call: <br> Phone: +34 966 663 - Email: quevedodiego3008@gmail.com"],
