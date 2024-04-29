@@ -45,7 +45,7 @@ export function displayDialogue(text, onDisplayEnd) {
             dialogue.innerHTML = text[index];
             if (index >= text.length -1){
                 onCloseBtn()
-                return
+                return index = 0
             } 
             clearInterval(intervalRef);
             return
