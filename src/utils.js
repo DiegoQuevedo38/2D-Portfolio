@@ -9,24 +9,21 @@ export function displayDialogue(text, onDisplayEnd) {
     let index = 0;
     let currentText = "";
     let intervalRef;
-
+    
     function displayNextLetter() {
-        if (index < text.length) {
+        if(index < text.length){
             const currentPart = text[index];
-            if (currentText !== currentPart) {
-                currentText += currentPart[currentText.length];
-                dialogue.innerHTML = currentText;
-                return;
+            if (currentText !== currentPart){
+                    currentText += currentPart[currentText.length];
+                    dialogue.innerHTML = currentText;
+                    return;
             } 
-            clearInterval(intervalRef);
-        } else {
-            clearInterval(intervalRef);
-        }
+        } completeText();
     }
 
-    const closeBtn = document.getElementById("close");
-
     intervalRef = setInterval(displayNextLetter, 5);
+
+    const closeBtn = document.getElementById("close");
 
     function onCloseBtn() {
         onDisplayEnd();
@@ -34,28 +31,26 @@ export function displayDialogue(text, onDisplayEnd) {
         dialogue.innerHTML = "";
         clearInterval(intervalRef);
         currentText = "";
+        index = 0;
         closeBtn.removeEventListener("click", onCloseBtn);
+        dialogueUI.removeEventListener("click", completeText);
     }
+    
+    function completeText() {
+        clearInterval(intervalRef);
+        if (index < text.length){
+            let currentText = text[index];
+            dialogue.innerHTML = currentText;
+            index ++
+            return
+        } 
+        return onCloseBtn();
+    }
+
+    dialogueUI.addEventListener("click", completeText);
 
     closeBtn.addEventListener("click", onCloseBtn);
 
-    dialogueUI.addEventListener("click", () => {
-        if (currentText !== text[index]) {
-            currentText = text[index];
-            dialogue.innerHTML = text[index];
-            if (index >= text.length -1){
-                onCloseBtn()
-                return index = 0
-            } 
-            clearInterval(intervalRef);
-            return
-        } 
-        clearInterval(intervalRef);
-        index = index + 1;
-        currentText = "";
-        intervalRef = setInterval(displayNextLetter, 5);
-        return
-    });
 }
 
 export function setCamScale(k) {
