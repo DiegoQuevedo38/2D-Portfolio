@@ -11,14 +11,13 @@ export function displayDialogue(text, onDisplayEnd) {
     let intervalRef;
     
     function displayNextLetter() {
-        if(index < text.length){
-            const currentPart = text[index];
-            if (currentText !== currentPart){
-                    currentText += currentPart[currentText.length];
-                    dialogue.innerHTML = currentText;
-                    return;
-            } 
-        } completeText();
+        const currentPart = text[index];
+        if (currentText !== currentPart){
+               currentText += currentPart[currentText.length];
+                dialogue.innerHTML = currentText;
+                return;
+        } 
+        completeText();
     }
 
     intervalRef = setInterval(displayNextLetter, 5);
