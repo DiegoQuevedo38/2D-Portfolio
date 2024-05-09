@@ -61,4 +61,19 @@ export function setCamScale(k) {
     k.camScale(k.vec2(1.5))
 }
 
+export function showModal(game, onDisplayEnd){
+    const modal = document.getElementById("modal");
+    const btn = document.getElementById("modal-btn");
+
+    function button(){
+        if (modal.style.display === "none"){
+            modal.style.display = "block"
+        } 
+        modal.style.display === "none"
+        onDisplayEnd();
+        btn.removeEventListener("click", button)
+    }
+
+    btn.addEventListener("click", button)
+}
 

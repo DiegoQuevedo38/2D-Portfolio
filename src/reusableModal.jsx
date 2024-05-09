@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/* import React, { useState } from 'react';
 
 function Modal(id) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -15,7 +15,7 @@ function Modal(id) {
 
   return (
     <div>
-      <button onClick={abrirModal}>Ver Video demo</button>
+      <button onClick={abrirModal}>Jugar</button>
 
       {modalVisible && (
         <div className="modal">
@@ -30,3 +30,38 @@ function Modal(id) {
 }
 
 export default Modal;
+ */
+
+import React, { useState } from 'react';
+
+const [modalVisible, setModalVisible] = useState(false);
+
+const abrirModal = () => {
+  setModalVisible(true);
+}
+
+const cerrarModal = () => {
+  setModalVisible(false);
+}
+function Modal() {
+
+  return (
+    <div>
+      <div>
+      <button onClick={abrirModal}>Jugar</button>
+      </div>
+
+      {modalVisible && (
+        <div className="modal">
+          <div className="modal-contenido">
+            <span className="cerrar" onClick={cerrarModal}>&times;</span>
+            <iframe src="../games/snake/Snake.js" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Modal;
+

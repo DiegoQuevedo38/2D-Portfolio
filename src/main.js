@@ -1,6 +1,6 @@
 import { scaleFactor, dialogueData } from "./constant";
 import { k } from "./kaboomContext";
-import { displayDialogue, setCamScale } from "./utils";
+import { displayDialogue, setCamScale, showModal } from "./utils";
 
 k.loadSprite("spritesheet", "./spritesheet.png", {
     sliceX: 39,
@@ -58,6 +58,12 @@ k.scene("main", async () => {
                     boundary.name,
                 ]);
 
+            if (boundary.name == "chopped-tree"){
+                player.onCollide(boundary.name, () => {
+                    player.isInDialogue = true;
+                    showModal(()=>(player.isInDialogue = false))
+                })
+            }
             if (boundary.name) {
                 player.onCollide(boundary.name, () => {
                     player.isInDialogue = true;
